@@ -35,9 +35,6 @@ public class playerController : MonoBehaviour
     public float baseMagicCost;
     public float baseMagicCooldown;
 
-    public string[] meleeWeaponsList;
-    public string[] rangedWeaponsList;
-
     void Awake()
     {
         rb = FindObjectOfType<Rigidbody2D>();
