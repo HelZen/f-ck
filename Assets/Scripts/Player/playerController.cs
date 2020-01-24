@@ -96,6 +96,10 @@ public class playerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
+        if (shield < 0)
+        {
+            shield = 0;
+        }
 
     }
 

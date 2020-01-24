@@ -35,8 +35,16 @@ public class enemyController : MonoBehaviour
             playerController player  = collision.gameObject.GetComponent<playerController>();
             if (player.damageCooldown <= 0)
             {
-                player.health -= baseDamage;
-                player.damageCooldown = 0.5f;
+                if (player.shield <= 0)
+                {
+                    player.health -= baseDamage;
+                    player.damageCooldown = 0.5f;
+                }
+                else
+                {
+                    player.shield -= baseDamage;
+                    player.damageCooldown = 0.5f;
+                }
             }
 
         }
