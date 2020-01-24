@@ -17,14 +17,18 @@ public class playerController : MonoBehaviour
     public float baseMoveSpeed = 5f;
         float moveSpeed;
         float sprintSpeed;
-    public float baseHealth;
-        float health;
-    public float baseShield;
-        float shield;
-    public float baseStamina;
-        float stamina;
-    public float baseMana;
-        float mana;
+    
+    public float health;
+    float maxHealth;
+
+    public float shield;
+    float maxShield;
+    
+    public float stamina;
+    float maxStamina;
+    
+    public float mana;
+    float maxMana;
 
     public float baseMeleeDamage;
     public float baseMeleeCooldown;
@@ -36,6 +40,7 @@ public class playerController : MonoBehaviour
     public float baseMagicCost;
     public float baseMagicCooldown;
 
+    public float damageCooldown;
     void Awake()
     {
         rb = FindObjectOfType<Rigidbody2D>();
@@ -45,10 +50,12 @@ public class playerController : MonoBehaviour
     void Start()
     {
         // set vitals
-        health = baseHealth;
-        shield = 0;
-        stamina = baseStamina;
-        mana = baseMana;
+        maxHealth = health;
+        maxShield = shield;
+        maxStamina = stamina;
+        maxMana = mana;
+
+        damageCooldown = 0;
 
         moveSpeed = baseMoveSpeed;
         sprintSpeed = moveSpeed * 1.5f;
@@ -77,6 +84,12 @@ public class playerController : MonoBehaviour
         {
             moveSpeed = baseMoveSpeed;
         }
+
+        if (damageCooldown > 0)
+        {
+            damageCooldown -= Time.deltaTime;
+        }
+
 
     }
 
