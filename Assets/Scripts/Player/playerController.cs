@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
@@ -88,6 +89,11 @@ public class playerController : MonoBehaviour
         if (damageCooldown > 0)
         {
             damageCooldown -= Time.deltaTime;
+        }
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
 
