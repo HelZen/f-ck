@@ -14,6 +14,6 @@ public class displayVitals : MonoBehaviour
     void Update()
     {
         playerController playerScript = player.gameObject.GetComponent<playerController>();
-        vitalText.text = "Health: " + playerScript.health;
+        vitalText.text = playerScript.health.ToString();
     }
 }
