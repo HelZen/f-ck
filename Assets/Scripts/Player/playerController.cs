@@ -14,7 +14,8 @@ public class playerController : MonoBehaviour
     Vector2 movement;
     Vector2 mousePos;
 
-    public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f;
+        float moveSpeed;
         float sprintSpeed;
     public float baseHealth;
         float health;
@@ -49,6 +50,7 @@ public class playerController : MonoBehaviour
         stamina = baseStamina;
         mana = baseMana;
 
+        moveSpeed = baseMoveSpeed;
         sprintSpeed = moveSpeed * 1.5f;
     }
 
@@ -65,6 +67,15 @@ public class playerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
+        }
+
+        if (Input.GetButton("Sprint"))
+        {
+            moveSpeed = sprintSpeed;
+        }
+        else
+        {
+            moveSpeed = baseMoveSpeed;
         }
 
     }

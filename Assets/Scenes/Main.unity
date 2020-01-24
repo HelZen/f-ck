@@ -276,7 +276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1183038389}
-  smoothSpeed: 0.125
+  smoothSpeed: 0.25
+  fixedRotation: 5
 --- !u!1 &1125827213
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +428,7 @@ MonoBehaviour:
   firingPoint: {fileID: 1125827214}
   bulletPrefab: {fileID: 875682454418497648, guid: c5cf975920ef6e447a614ce8fb51a2eb,
     type: 3}
-  moveSpeed: 5
+  baseMoveSpeed: 5
   baseHealth: 0
   baseShield: 0
   baseStamina: 0
