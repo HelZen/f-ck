@@ -21,7 +21,6 @@ public class playerController : MonoBehaviour
     float maxShield;
     public float mana;
     float maxMana;
-    float manaTimer = 0;
     public int stamina;
     int maxStamina;
     public int baseRangedDamage;
