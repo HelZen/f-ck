@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
-    public float baseHP;
-    public float hp;
+    public int baseHP;
+    public int hp;
     public float baseSpeed;
     float speed;
-    public float baseDamage;
+    public int baseDamage;
 
-    void Start()
+    void Awake()
     {
 
         hp = baseHP;
@@ -33,7 +33,7 @@ public class enemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerController player  = collision.gameObject.GetComponent<playerController>();
-            if (player.damageCooldown <= 0)
+            if (player.damageCooldown <= 0.0f)
             {
                 if (player.shield <= 0)
                 {

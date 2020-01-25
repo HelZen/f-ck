@@ -12,39 +12,39 @@ public class playerController : MonoBehaviour
     public Transform firingPoint;
     public GameObject bulletPrefab;
 
+    public shakeCamera cameraShakeScript;
+
     Vector2 movement;
     Vector2 mousePos;
 
-    public float baseMoveSpeed = 5f;
+    public float baseMoveSpeed = 5.0f;
         float moveSpeed;
         float sprintSpeed;
     
-    public float health;
-    float maxHealth;
+    public int health;
+    int maxHealth;
 
-    public float shield;
+    public int shield;
     float maxShield;
-    
-    public float stamina;
-    float maxStamina;
     
     public float mana;
     float maxMana;
+    float manaTimer = 0;
 
-    public float baseMeleeDamage;
-    public float baseMeleeCooldown;
-    
-    public float baseRangedDamage;
+    public int stamina;
+    int maxStamina;
+
+    public int baseRangedDamage;
+    public int baseRangedCost;
     public float baseRangedCooldown;
 
-    public float baseMagicPower;
-    public float baseMagicCost;
-    public float baseMagicCooldown;
-
     public float damageCooldown;
+
+    bool invokedAddingMana = false;
+
     void Awake()
     {
-        rb = FindObjectOfType<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         cam = FindObjectOfType<Camera>();
     }
 
@@ -56,8 +56,8 @@ public class playerController : MonoBehaviour
         maxStamina = stamina;
         maxMana = mana;
 
+        // set default values
         damageCooldown = 0;
-
         moveSpeed = baseMoveSpeed;
         sprintSpeed = moveSpeed * 1.5f;
     }
@@ -72,11 +72,16 @@ public class playerController : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetButtonDown("Fire1"))
+        // fire weapon
+        if (mana >= baseRangedCost)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+            }
         }
 
+        // sprint
         if (Input.GetButton("Sprint"))
         {
             moveSpeed = sprintSpeed;
@@ -96,10 +101,24 @@ public class playerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
-        if (shield < 0)
+        // make shield and mana stay above 0 and below 100
+        shield = Mathf.RoundToInt(Mathf.Clamp(shield, 0.0f, 100.0f));
+        mana = Mathf.RoundToInt(Mathf.Clamp(mana, 0.0f, 100.0f));
+
+        // add mana points over time
+
+        if (mana < 100 && invokedAddingMana == false)
         {
-            shield = 0;
+
+            InvokeRepeating("AddMana", 1.25f, 0.25f);
+            invokedAddingMana = true;
         }
+        else if (mana == 100)
+        {
+            CancelInvoke("AddMana");
+            invokedAddingMana = false;
+        }
+
 
     }
 
@@ -110,17 +129,33 @@ public class playerController : MonoBehaviour
         // move the player
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
+        //rotate player based on position of mouse
         Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90.0f;
         rb.rotation = angle;
+
+    }
+
+    void LateUpdate()
+    {
 
     }
 
     void Shoot()
     {
+        mana -= baseRangedCost;
+        CancelInvoke("AddMana");
+        invokedAddingMana = false;
         float bulletForce = 30f;
         GameObject bulletClone = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
         Rigidbody2D bulletRB = bulletClone.GetComponent<Rigidbody2D>();
         bulletRB.AddForce(firingPoint.up * bulletForce, ForceMode2D.Impulse);
+        StartCoroutine(cameraShakeScript.Shake(0.1f, 0.05f));
     }
+
+    void AddMana()
+    {
+        mana += 10;
+    }
+
 }

@@ -18,7 +18,7 @@ public class bulletCollision : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<enemyController>().hp -= player[0].gameObject.GetComponent<playerController>().baseRangedDamage;
+            collision.gameObject.GetComponent<enemyController>().hp -= Convert.ToInt32(player[0].gameObject.GetComponent<playerController>().baseRangedDamage);
             Destroy(gameObject);
         }
 

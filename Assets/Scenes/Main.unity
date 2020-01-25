@@ -251,7 +251,7 @@ RectTransform:
   m_Children:
   - {fileID: 177938225}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420033}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Cam
   m_TagString: MainCamera
@@ -285,6 +285,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4046e303346d1404d8415e43d1040c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -342,18 +354,6 @@ Transform:
   m_Father: {fileID: 536556150}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4046e303346d1404d8415e43d1040c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &536556149
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +363,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536556150}
-  - component: {fileID: 536556151}
   - component: {fileID: 536556152}
   m_Layer: 0
   m_Name: Camera Holder
@@ -385,21 +384,8 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &536556151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536556149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25d36713c3afa64a872d2cb1d745add, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraShake: {fileID: 519420033}
 --- !u!114 &536556152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,7 +630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125827213
 GameObject:
@@ -687,8 +673,8 @@ GameObject:
   - component: {fileID: 1183038389}
   - component: {fileID: 1183038388}
   - component: {fileID: 1183038387}
-  - component: {fileID: 1183038390}
   - component: {fileID: 1183038391}
+  - component: {fileID: 1183038390}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -766,7 +752,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1183038389
 Transform:
   m_ObjectHideFlags: 0
@@ -780,7 +766,7 @@ Transform:
   m_Children:
   - {fileID: 1125827214}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1183038390
 MonoBehaviour:
@@ -797,19 +783,16 @@ MonoBehaviour:
   firingPoint: {fileID: 1125827214}
   bulletPrefab: {fileID: 875682454418497648, guid: c5cf975920ef6e447a614ce8fb51a2eb,
     type: 3}
+  cameraShakeScript: {fileID: 519420030}
   baseMoveSpeed: 5
   health: 100
   shield: 100
+  mana: 100
   stamina: 0
-  mana: 0
-  baseMeleeDamage: 0
-  baseMeleeCooldown: 0
   baseRangedDamage: 10
+  baseRangedCost: 5
   baseRangedCooldown: 0
-  baseMagicPower: 0
-  baseMagicCost: 0
-  baseMagicCooldown: 0
-  damageCooldown: 0
+  damageCooldown: 0.5
 --- !u!61 &1183038391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1120,7 +1103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1736645940
 MonoBehaviour:
@@ -1135,8 +1118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2002098523881387011, guid: 6cc3dc761d17aa5418ee9d1760345308, type: 3}
-  spawnTime: 1
-  spawnAmount: 2
+  spawnTime: 5
+  spawnAmount: 5
 --- !u!1 &1982493199
 GameObject:
   m_ObjectHideFlags: 0
