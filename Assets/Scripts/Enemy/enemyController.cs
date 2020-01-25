@@ -30,7 +30,7 @@ public class enemyController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player") // damage player if they collide
         {
             playerController player  = collision.gameObject.GetComponent<playerController>();
             if (player.damageCooldown <= 0.0f)
