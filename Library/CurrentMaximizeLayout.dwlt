@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 957
-  m_MinSize: {x: 909, y: 421}
-  m_MaxSize: {x: 22004, y: 10021}
+  m_MinSize: {x: 911, y: 442}
+  m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 3759
+  controlID: 422
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 44fbffff18350000
+      m_ExpandedIDs: 44fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -218,10 +218,10 @@ MonoBehaviour:
     y: 0
     width: 934
     height: 957
-  m_MinSize: {x: 202, y: 421}
-  m_MaxSize: {x: 4002, y: 8021}
+  m_MinSize: {x: 202, y: 442}
+  m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 3760
+  controlID: 423
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -481,20 +481,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Enemy
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Enemy
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\sanic\Documents\Unity Projects\f-ck
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 98360000
-    m_LastClickedID: 13976
-    m_ExpandedIDs: 000000008e360000903600009a36000000ca9a3b
+    m_SelectedIDs: 9e360000
+    m_LastClickedID: 13982
+    m_ExpandedIDs: 000000008e360000903600009236000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -522,7 +522,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e360000903600009a36000000ca9a3b
+    m_ExpandedIDs: 000000008e360000903600009236000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -547,8 +547,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 28350000
+    m_LastClickedInstanceID: 13608
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 0000000054360000
     m_RenameOverlay:
@@ -641,7 +641,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 13608
   m_LastVerticalScrollValue: 0
 --- !u!114 &14
 MonoBehaviour:

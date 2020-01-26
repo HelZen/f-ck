@@ -903,14 +903,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addb9c425d35b464ca3978e1c8a4f701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingPoint: {fileID: 1125827214}
-  bulletPrefab: {fileID: 875682454418497648, guid: c5cf975920ef6e447a614ce8fb51a2eb,
-    type: 3}
   cameraShakeScript: {fileID: 519420030}
   baseMoveSpeed: 5
   health: 100
   shield: 100
   mana: 100
+  firingPoint: {fileID: 1125827214}
+  bulletPrefab: {fileID: 875682454418497648, guid: c5cf975920ef6e447a614ce8fb51a2eb,
+    type: 3}
   stamina: 0
   baseRangedDamage: 10
   baseRangedCost: 5
