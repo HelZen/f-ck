@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Camera\shakeCamera.cs" />
     <Compile Include="Assets\Scripts\Camera\shootShake.cs" />
     <Compile Include="Assets\Scripts\Enemy\enemyController.cs" />
+    <Compile Include="Assets\Scripts\Game\disablePostProcessing.cs" />
     <Compile Include="Assets\Scripts\Game\enemySpawner.cs" />
     <Compile Include="Assets\Scripts\Menu\mainMenu.cs" />
     <Compile Include="Assets\Scripts\Player\playerController.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Assets\Scripts\UI\displayMana.cs" />
     <Compile Include="Assets\Scripts\UI\displayShield.cs" />
     <Compile Include="Assets\Scripts\Weapons\bulletCollision.cs" />
-    <Compile Include="Assets\Scripts\disablePostProcessing.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

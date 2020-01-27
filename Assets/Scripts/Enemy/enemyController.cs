@@ -86,20 +86,10 @@ public class enemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        }
-    }
-
-
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
         if (collision.gameObject.tag == "Player") // damage player if they collide
-        {   
-            playerController player  = collision.gameObject.GetComponent<playerController>();
-            
+        {
+            playerController player = collision.gameObject.GetComponent<playerController>();
+
             if (player.damageCooldown <= 0.0f)
             {
                 if (player.shield <= 0)
@@ -108,11 +98,16 @@ public class enemyController : MonoBehaviour
                     player.damageCooldown = 0.5f;
                 }
                 else
-                {   
+                {
                     player.shield -= baseDamage;
                     player.damageCooldown = 0.5f;
                 }
             }
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
     }
 
