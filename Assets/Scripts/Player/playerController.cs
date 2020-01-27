@@ -57,7 +57,25 @@ public class playerController : MonoBehaviour
         maxShield = shield;
         maxStamina = stamina;
         maxMana = mana;
-        
+
+        if (health == 0)
+        {
+            maxHealth = 100;
+            health = 100;
+        }
+
+        if (shield == 0)
+        {
+            maxShield = 100;
+            shield = 0;
+        }
+
+        if (mana == 0)
+        {
+            maxMana = 100;
+            mana = 100;
+        }
+
         // set default values
         damageCooldown = 0;
         moveSpeed = baseMoveSpeed;
@@ -128,10 +146,8 @@ public class playerController : MonoBehaviour
         }
         else if (mana == 100)
         {
-
             CancelInvoke("AddMana");
             invokedAddingMana = false;
-
         }
 
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
@@ -142,7 +158,7 @@ public class playerController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
-            godLike = true;
+            godLike = true; // max everything forever
         }
         if (godLike)
         {
@@ -184,7 +200,7 @@ public class playerController : MonoBehaviour
         mana += 10;
     }
 
-    void hesoyam()
+    void hesoyam() // give max everything, the script name is a reference to a cheat code in GTA: SA
     {
         mana = maxMana;
         health = maxHealth;

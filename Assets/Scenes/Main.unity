@@ -251,7 +251,7 @@ RectTransform:
   m_Children:
   - {fileID: 177938225}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -445,7 +445,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &536556152
 MonoBehaviour:
@@ -753,7 +753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125827213
 GameObject:
@@ -889,7 +889,7 @@ Transform:
   m_Children:
   - {fileID: 1125827214}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1183038390
 MonoBehaviour:
@@ -905,9 +905,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShakeScript: {fileID: 519420030}
   baseMoveSpeed: 5
-  health: 100
-  shield: 100
-  mana: 100
+  health: 0
+  shield: 0
+  mana: 0
   firingPoint: {fileID: 1125827214}
   bulletPrefab: {fileID: 875682454418497648, guid: c5cf975920ef6e447a614ce8fb51a2eb,
     type: 3}
@@ -1240,9 +1240,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35675ba536fb1c748a6d10713502ea32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2002098523881387011, guid: 6cc3dc761d17aa5418ee9d1760345308, type: 3}
-  spawnTime: 0
-  spawnAmount: 0
+  enemy: {fileID: 7974597888264306173, guid: 1a5b11b5eb3108646bb4ad4645371e15, type: 3}
+  spawnTime: 2.5
+  spawnAmount: 5
+--- !u!1 &1860019463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860019465}
+  - component: {fileID: 1860019464}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1860019464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860019463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAACAn+vjJvlUbgIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxHAeH3lpCSA/5mNBOLr4Ia401yJJHkgMkw3/vSraxS0+I9/bj7dPKX0QoW0PutFkbwZ80B/J9QvyZfJsM5CMc2U6rjfiEPuZdcFf6IBZi3pgTGnHq06yuwBmR/1A76YMjBBslCm2qFd/BUltnES6YtICU0c5nK4S+JuSIP9OFTznhKU796RNPi2hyxmMOyoEZhc5nd2m0uI3SLoPO0tskiVO66BKnNzMa05s4vUtW0ygNVRqVS1bVwP1IQzEa9X3xFAIVjtvF+NFyLaWwnVbiTnXwYlOXYMCbwQXD0YM+OrtBoASxK50fZJz9UhQWXOeMYad7YdDDtiz5qVtjK2b3rbQPJhvf6JbGQVRb9Ok/fkoDXRhdPfZ925FcKfL9GzvlzLqR82P4fiQ9OHRgcs+2Et5LUM96bXSjOJLOND61sRDfD38voy1LyPcD3kq9Apt6sLw3vL9mP8M5TH9cSlFtPTVLWmAjdTA8bAcYvJpfKDjsju1KIOpV/LHwm+3GS9YRD8JYh1Q3pfLytroxPpSsgmd+msYttVEQ4E50DYpJd3rFMu76Cq+4Udsr5oH559Q177j+lVylBHiIj6Ir6lUfLpdlS314Alu+NE4KBYNoTzyjT0utVLthY0/6tE1jCpaP0naN4P+uFilinqZxApQWKStoMo0pXSTz+byICw7zOSNh94TCOZl8bYV29uCtqaG4wj3rvzKTtWF12HZu2GEtPis9FihUoTe5AVAvbYmLcjDYBd8lX3GBDm3AOaHChZOvjEid74Fnl55ZGHV1dIZlQ5WM1OJDO49kZBm+Kxk5k/NfUEsDBBQAAAgIAACAn+vme7n3bAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01FFQSi9KLMgoBoqAOaWZKSB2tFKaUYq5uZFJqqFhmnlimqGJrpGhoaWJmZlZmlFaSqqZWaJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAICf6+Mm+VRuAgAAFgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAICf6+Z7ufdsAAAAeAAAAAkAJAAAAAAAAAAAAAAAuwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAByAwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 0
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 0
+--- !u!4 &1860019465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860019463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982493199
 GameObject:
   m_ObjectHideFlags: 0

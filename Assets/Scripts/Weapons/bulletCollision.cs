@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class bulletCollision : MonoBehaviour
 {
-    GameObject[] player;
-
+    GameObject player;
 
     void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,7 +17,7 @@ public class bulletCollision : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<enemyController>().hp -= Convert.ToInt32(player[0].gameObject.GetComponent<playerController>().baseRangedDamage);
+            collision.gameObject.GetComponent<enemyController>().hp -= (int)(player.gameObject.GetComponent<playerController>().baseRangedDamage);
             Destroy(gameObject);
         }
 
