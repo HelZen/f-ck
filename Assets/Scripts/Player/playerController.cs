@@ -36,8 +36,8 @@ public class playerController : MonoBehaviour
     
     public int baseRangedDamage;
     public int baseRangedCost;
-    
     public float baseRangedCooldown;
+    
     public float damageCooldown;
 
     bool godLike = false;
@@ -79,7 +79,7 @@ public class playerController : MonoBehaviour
         // set default values
         damageCooldown = 0;
         moveSpeed = baseMoveSpeed;
-        sprintSpeed = moveSpeed * 1.5f;
+        sprintSpeed = moveSpeed * 2f;
 
     }
     void Update()
@@ -119,7 +119,7 @@ public class playerController : MonoBehaviour
         if (damageCooldown > 0)
         {
         
-            damageCooldown -= Time.deltaTime;
+            damageCooldown -= 0.05f * Time.deltaTime;
         
         }
         
