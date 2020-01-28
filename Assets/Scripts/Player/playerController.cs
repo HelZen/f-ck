@@ -23,9 +23,9 @@ public class playerController : MonoBehaviour
     public float shield;
     float maxShield;
     
-    public float mana;
+    public static float mana;
     float maxMana;
-    bool invokedAddingMana = false;
+    public static bool invokedAddingMana = false;
 
     public Transform firingPoint;
     public GameObject bulletPrefab;
@@ -90,19 +90,17 @@ public class playerController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
         
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        
-        // fire weapon
-        if (mana >= baseRangedCost)
-        {
-        
-            if (Input.GetButtonDown("Fire1"))
-            {
-            
-                Shoot();
-            
-            }
 
+        // fire weapon
+        if (Input.GetButtonDown("Fire1")) 
+        {
+            GameObject activeGun = GameObject.FindGameObjectWithTag("Gun");
+            if (mana >= baseRangedCost)
+            {
+                activeGun.GetComponent<Gun>().Shoot();
+            }
         }
+
         
         // sprint
         if (Input.GetButton("Sprint"))
@@ -180,22 +178,8 @@ public class playerController : MonoBehaviour
         rb.rotation = angle;
 
     }
-    void Shoot()
-    {
 
-        mana -= baseRangedCost;
-        
-        CancelInvoke("AddMana");
-        invokedAddingMana = false;
-        
-        // create bullet
-        float bulletForce = 30f;
-        GameObject bulletClone = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-        Rigidbody2D bulletRB = bulletClone.GetComponent<Rigidbody2D>();
-        bulletRB.AddForce(firingPoint.up * bulletForce, ForceMode2D.Impulse);
-        StartCoroutine(cameraShakeScript.Shake(0.1f, 0.05f));
-    }
-    void AddMana()
+    public void AddMana()
     {
         mana += 10;
     }
